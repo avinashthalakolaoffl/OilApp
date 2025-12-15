@@ -31,8 +31,8 @@ function App() {
     setMsg("");
 
     const url = isLogin
-      ? `${BASE_URL}/api/auth/login`
-      : `${BASE_URL}/api/auth/register`;
+      ? `${API_BASE_URL}/api/auth/login`
+      : `${API_BASE_URL}/api/auth/register`;
 
     const payload = isLogin
       ? { email: form.email, password: form.password }
@@ -87,7 +87,7 @@ function App() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`${BASE_URL}/api/orders`, {
+      const res = await fetch(`${API_BASE_URL}/api/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ function App() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`${BASE_URL}/api/orders`, {
+      const res = await fetch(`${API_BASE_URL}/api/orders`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -135,7 +135,7 @@ function App() {
 
   const updateStatus = async (id, status) => {
     const token = localStorage.getItem("token");
-    await fetch(`${BASE_URL}/api/orders/${id}`, {
+    await fetch(`${API_BASE_URL}/api/orders/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
