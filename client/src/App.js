@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import BASE_URL from "./config";
+import API_BASE_URL from "./config";
+
 
 function App() {
   const [isLogin, setIsLogin] = useState(true);
